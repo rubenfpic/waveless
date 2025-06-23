@@ -1,0 +1,92 @@
+@use "../02-tools/mixins" as *;
+@use "../02-tools/functions" as *;
+
+.nav {
+    display: none;
+    position: relative;
+    font-weight: 600;
+
+    @include media(laptop) {
+        display: flex;
+
+        &__list {
+            display: flex;
+            gap: to-rem(16px);
+            padding: 0;
+            margin: 0;
+        }
+
+        &__item {
+            list-style: none;
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            height: to-rem(80px);
+            position: relative;
+            text-decoration: none;
+            color: var(--tab-navbar-text-default);
+
+            &.is-active {
+                font-weight: 700;
+
+                &::after {
+                    content: "";
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-bottom: to-rem(2px) solid var(--tab-navbar-selection-indicator-background-active);
+                }
+
+                &::before {
+                    content: "";
+                    transform: translateX(-50%) translateY(100%);
+                    position: absolute;
+                    left: 50%;
+                    bottom: to-rem(12px);
+                    border-left: to-rem(9px) solid transparent;
+                    border-right: to-rem(9px) solid transparent;
+                    border-bottom: to-rem(12px) solid var(--tab-navbar-selection-indicator-background-active);
+                }
+
+                &:hover {
+                    &::before,
+                    &::after {
+                        border-bottom-color: var(--tab-navbar-selection-indicator-background-active-hover);
+                    }
+                }
+            }
+
+            &:hover {
+                color: var(--tab-navbar-text-hover);
+            }
+        }
+
+        &__icon {
+            margin-right: to-rem(6px);
+            height: to-rem(24px);
+            width: to-rem(24px);
+            color: inherit;
+        }
+
+        &__text {
+            text-align: center;
+            &::after {
+                content: attr(data-text);
+                font-weight: 700;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                display: block;
+            }
+        }
+    }
+
+    @include media(desktop) {
+        &__list {
+            gap: to-rem(72px);
+        }
+    }
+}

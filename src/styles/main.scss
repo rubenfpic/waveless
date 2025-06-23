@@ -1,0 +1,25 @@
+// 1. Settings (variables, colores)
+@use "./01-settings/breakpoints";
+@use "./01-settings/fonts";
+
+// 2. Tools (mixins, funciones)
+@use "./02-tools/mixins";
+@use "./02-tools/functions";
+
+// 3. Generic (reset, normalize)
+@use "./03-generic/reset";
+
+// 4. Elements (h1, p, etc.)
+@use "./04-elements/elements";
+
+// 5. Objects (layouts reutilizables, helpers)
+
+// 6. Components (bloques: header, card…)
+@use "./06-components/header";
+@use "./06-components/hero";
+@use "./06-components/nav";
+@use "./06-components/logo";
+@use "./06-components/button";
+@use "./06-components/footer";
+
+// 7. Trumps (helpers tipo .u-hidden)

@@ -1,0 +1,43 @@
+@use "../01-settings/tokens";
+@use "../02-tools/functions" as *;
+
+.button {
+    font-weight: 600;
+    font-size: to-rem(16px);
+    line-height: to-rem(24px);
+    border: 0;
+    border-radius: to-rem(32px);
+
+    &--sm {
+        min-height: to-rem(40px);
+        padding: to-rem(8px 24px);
+    }
+
+    &--md,
+    &--base {
+        min-height: to-rem(48px);
+        padding: to-rem(12px 40px);
+    }
+    &--lg {
+        min-height: to-rem(56px);
+        padding: to-rem(16px 48px);
+    }
+
+    &--primary {
+        color: var(--button-primary-text-default);
+        background: var(--button-primary-background-default);
+
+        &:hover {
+            background: var(--button-primary-background-hover);
+        }
+    }
+
+    &--accent {
+        color: var(--button-accent-text-default);
+        background: var(--button-accent-background-default);
+
+        &:hover {
+            background: var(--button-accent-background-hover);
+        }
+    }
+}

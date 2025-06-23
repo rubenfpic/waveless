@@ -1,0 +1,12 @@
+@use "../02-tools/mixins" as *;
+@use "../02-tools/functions" as *;
+
+.logo {
+    &__img {
+        height: to-rem(24px);
+
+        @include media(tablet) {
+            height: to-rem(32px);
+        }
+    }
+}

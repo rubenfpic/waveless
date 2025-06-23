@@ -1,0 +1,60 @@
+@use "../02-tools/mixins" as *;
+@use "../02-tools/functions" as *;
+
+.header {
+    width: 100%;
+
+    &__layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        background: var(--header-background-default);
+        padding: to-rem(8px 16px);
+
+        @include media(mobile) {
+            background-color: lightgreen !important;
+            padding: to-rem(0 16px);
+            height: to-rem(56px);
+        }
+
+        @include media(tablet) {
+            background-color: lightpink !important;
+            padding: to-rem(0 24px);
+            height: to-rem(80px);
+        }
+
+        @include media(laptop) {
+            background-color: lightgray !important;
+            padding: to-rem(0 32px);
+        }
+
+        @include media(desktop) {
+            background-color: lightskyblue !important;
+        }
+
+        &::after {
+            content: "";
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-bottom: to-rem(1px) solid var(--tab-navbar-selection-indicator-background-active);
+        }
+    }
+
+    &__actions {
+        display: none;
+
+        @include media(laptop) {
+            display: block;
+        }
+    }
+
+    &__burger {
+        @include media(laptop) {
+            display: none;
+        }
+    }
+}

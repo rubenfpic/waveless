@@ -1,0 +1,28 @@
+:root {
+    --button-primary-text-default: #ffffff;
+    --button-primary-background-default: #622f60;
+    --button-primary-background-hover: #471f45;
+    --button-accent-text-default: #57290f;
+    --button-accent-background-default: #ff8f50;
+    --button-accent-background-hover: #d67843;
+
+    --header-background-default: #ffffff;
+
+    --navbar-border-default: #ff8f50;
+    --navbar-background-default: #ffffff;
+
+    --tab-navbar-text-default: #342e34;
+    --tab-navbar-text-hover: #2d242d;
+    --tab-navbar-selection-indicator-background-active: #ff8f50;
+    --tab-navbar-selection-indicator-background-active-hover: #d67843;
+
+    --footer-background-default: #fbf6f4;
+    --footer-foreground-bottom-bar-default: #622f60;
+    --footer-background-bottom-bar-default: #e0d9e0;
+}
+
+// background: var(--tab-navbar-text-default, #342E34);
+// background: var(--tab-navbar-text-hover, #2D242D);
+
+// background: var(--tab-navbar-text-default, #342e34);
+// background: var(--tab-navbar-text-hover, #2d242d);
