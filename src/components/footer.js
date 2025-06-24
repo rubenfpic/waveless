@@ -9,7 +9,8 @@ export function createFooter() {
       <div class="footer__legal">
         <p>@2025 Waveless - Todos los derechos reservados.</p>
       </div>
-    </div>`);
+    </div>
+  `);
 
   return fragment;
 }

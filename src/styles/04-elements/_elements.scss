@@ -1,4 +1,5 @@
 @use "../01-settings/fonts";
+@use "../02-tools/functions" as *;
 
 body {
     font-family: "Syne variable", sans-serif;
@@ -11,4 +12,18 @@ h4,
 h5,
 h6 {
     font-family: "Syne variable", sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: to-rem(30px);
+    line-height: to-rem(32px);
+    color: #2f222f;
+}
+
+p {
+    font-weight: 400;
+    font-size: to-rem(20px);
+    line-height: to-rem(24px);
+    color: #6b7d8d;
 }
