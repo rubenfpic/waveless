@@ -1,0 +1,57 @@
+@use "../02-tools/mixins" as *;
+@use "../02-tools/functions" as *;
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+
+    &__intro {
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: to-rem(24px);
+        width: 100%;
+
+        @include media(mobile) {
+            width: to-rem(360px);
+            margin: 0 auto;
+        }
+
+        @include media(tablet) {
+            width: to-rem(552px);
+        }
+
+        @include media(laptop) {
+            width: to-rem(840px);
+        }
+
+        @include media(desktop) {
+            width: to-rem(1128px);
+        }
+    }
+
+    &__filters {
+        width: 100%;
+
+        @include media(desktop) {
+            width: to-rem(264px);
+            padding: to-rem(40px 0);
+        }
+    }
+
+    &__cards {
+        width: auto;
+
+        @include media(desktop) {
+            max-width: to-rem(840px);
+        }
+    }
+}

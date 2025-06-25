@@ -42,4 +42,9 @@
         <path d="M14.996 19.262V14.7748C14.996 13.6084 14.0504 12.6628 12.884 12.6628H12.2053C11.0388 12.6628 10.0933 13.6084 10.0933 14.7748V19.262"
             stroke="currentColor" stroke-width="1.2672" />
     </symbol>
+    <symbol id="filtros" viewBox="0 0 24 24" fill="none">
+        <path d="M3.3335 6H20.6668" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6.66699 12H17.3337" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10 18H14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
 </svg>
