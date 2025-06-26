@@ -40,4 +40,15 @@
             background: var(--button-accent-background-hover);
         }
     }
+
+    &--link {
+        font-family: "Nunito variable", sans-serif;
+        font-weight: 600;
+        font-size: to-rem(14px);
+        line-height: to-rem(20px);
+        vertical-align: middle;
+        text-decoration: underline;
+        background: transparent;
+        cursor: pointer;
+    }
 }

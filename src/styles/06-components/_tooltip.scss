@@ -1,0 +1,55 @@
+@use "../02-tools/functions" as *;
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    font-family: "Urbanist variable", sans-serif;
+    font-weight: 500;
+    font-size: to-rem(14px);
+    line-height: to-rem(16px);
+    text-align: center;
+
+    &__icon {
+        width: to-rem(12px);
+        height: to-rem(12px);
+        margin-bottom: to-rem(-1px);
+    }
+
+    &__text {
+        position: absolute;
+        z-index: 1;
+        visibility: hidden;
+        left: 50%;
+        bottom: 100%;
+        transform: translateX(-50%);
+
+        width: auto;
+        min-width: to-rem(100px);
+        max-width: to-rem(200px);
+
+        background: var(--overlay-background-default);
+        color: var(--overlay-text-default);
+        text-align: center;
+        padding: to-rem(6px 10px);
+        border-radius: to-rem(4px);
+        box-shadow: to-rem(0px 4px 8px 0px) var(--overlay-shadow-default);
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: to-rem(5px);
+            border-style: solid;
+            border-color: var(--overlay-background-default) transparent transparent transparent;
+        }
+    }
+
+    &:hover {
+        .tooltip__text {
+            visibility: visible;
+        }
+    }
+}

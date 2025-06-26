@@ -6,14 +6,109 @@
         text-align: center;
     }
 
-    &__toggle {
-        margin: 0 auto;
+    &__panel {
+        display: none;
+        background-color: var(--filters-background-default);
 
+        &.is-visible {
+            display: block;
+        }
+
+        @include media(desktop) {
+            display: block;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: to-rem(16px 24px);
+        border-bottom: to-rem(1px) solid var(--filters-divisor);
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: to-rem(18px);
+        line-height: to-rem(24px);
+        padding: to-rem(12px 0);
+    }
+
+    &__close {
+        width: to-rem(24px);
+        height: to-rem(24px);
+        cursor: pointer;
+    }
+
+    &__form {
+        padding: to-rem(12px 24px 32px 24px);
+    }
+
+    &__legend {
+        display: flex;
+        align-items: center;
+        font-family: "Nunito variable", sans-serif;
+        font-weight: 700;
+        font-size: to-rem(16px);
+        line-height: to-rem(20px);
+        color: var(--filters-filter-name-text-open);
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: to-rem(48px);
+    }
+
+    &__icon {
+        width: to-rem(24px);
+        height: to-rem(24px);
+        margin-right: to-rem(8px);
+    }
+
+    &__legend-text {
+        flex-basis: 100%;
+    }
+
+    &__chevron {
+        width: to-rem(24px);
+        height: to-rem(24px);
+        transform: rotate(90deg);
+        transition: ease-in 0.2s transform;
+    }
+
+    &__fieldset {
+        text-align: left;
+        border: none;
+        position: relative;
+        padding: to-rem(48px 0 0 16px);
+
+        .button {
+            margin: to-rem(8px 0 16px);
+        }
+
+        &.is-collapsed {
+            .input-wrapper,
+            .button {
+                display: none;
+            }
+            .filters__legend {
+                color: var(--filters-filter-name-text-default);
+            }
+            .filters__chevron {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    &__toggle {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-
+        margin: 0 auto;
+        cursor: pointer;
         font-family: "Nunito variable", sans-serif;
         font-weight: 600;
         font-size: to-rem(20px);
@@ -44,21 +139,5 @@
     &__icon {
         width: to-rem(24px);
         height: to-rem(24px);
-    }
-
-    &__panel {
-        background-image: repeating-linear-gradient(45deg, #6fbab5, #6d446d 10px, #4b1a2f 10px, #1d0092 20px);
-        color: white;
-        padding: 1rem;
-
-        display: none;
-
-        &.is-visible {
-            display: block;
-        }
-
-        @include media(desktop) {
-            display: block;
-        }
     }
 }
