@@ -216,11 +216,16 @@ export function toggleFiltersPanel() {
   const filtersToggle = document.querySelector(".js-filters-toggle");
   const filtersPanel = document.querySelector(".js-filters-panel");
   const filtersClose = document.querySelector(".js-filters-close");
+  const body = document.querySelector("body");
+
   filtersToggle.addEventListener("click", () => {
     filtersPanel.classList.toggle("is-visible");
+    body.classList.toggle("no-scroll");
   });
+
   filtersClose.addEventListener("click", () => {
     filtersPanel.classList.toggle("is-visible");
+    body.classList.remove("no-scroll");
   });
 }
 
@@ -248,4 +253,8 @@ export function toggleFiltersList() {
       ? "Ver menos"
       : "Ver más";
   });
+}
+
+export function filterByAdventure() {
+  console.log("adadadadaasdasd");
 }

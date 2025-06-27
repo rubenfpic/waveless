@@ -9,7 +9,7 @@ import {
   toggleFiltersFieldset,
   toggleFiltersList,
 } from "./components/filters.js";
-import { createCards } from "./components/cards.js";
+import { createCards, showDetails } from "./components/cards.js";
 import { createFooter } from "./components/footer.js";
 
 const headerNode = document.getElementById("header");
@@ -39,3 +39,4 @@ footerNode.appendChild(footerContent);
 toggleFiltersPanel();
 toggleFiltersFieldset();
 toggleFiltersList();
+showDetails();
