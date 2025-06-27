@@ -211,3 +211,41 @@ export function createFilters() {
 
   return fragment;
 }
+
+export function toggleFiltersPanel() {
+  const filtersToggle = document.querySelector(".js-filters-toggle");
+  const filtersPanel = document.querySelector(".js-filters-panel");
+  const filtersClose = document.querySelector(".js-filters-close");
+  filtersToggle.addEventListener("click", () => {
+    filtersPanel.classList.toggle("is-visible");
+  });
+  filtersClose.addEventListener("click", () => {
+    filtersPanel.classList.toggle("is-visible");
+  });
+}
+
+export function toggleFiltersFieldset() {
+  const legendsList = document.querySelectorAll(".js-legend");
+  legendsList.forEach((legend) => {
+    legend.addEventListener("click", () => {
+      legend.parentElement.classList.toggle("is-collapsed");
+    });
+  });
+}
+
+export function toggleFiltersList() {
+  const aventuraButton = document.querySelector("#aventuraToggle");
+  const aventuraList = document.querySelectorAll(
+    "#aventuraFieldset .input-wrapper.is-hidden"
+  );
+  aventuraButton.addEventListener("click", () => {
+    aventuraList.forEach((item) => {
+      item.classList.toggle("is-hidden");
+    });
+    aventuraButton.textContent = !document.querySelector(
+      "#aventuraFieldset .input-wrapper.is-hidden"
+    )
+      ? "Ver menos"
+      : "Ver más";
+  });
+}
