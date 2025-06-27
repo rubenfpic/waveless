@@ -73,14 +73,6 @@
 
         &__text {
             text-align: center;
-            &::after {
-                content: attr(data-text);
-                font-weight: 700;
-                height: 0;
-                // overflow: hidden;
-                visibility: hidden;
-                display: block;
-            }
         }
     }
 

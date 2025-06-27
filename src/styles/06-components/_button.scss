@@ -7,6 +7,7 @@
     line-height: to-rem(24px);
     border: 0;
     border-radius: to-rem(32px);
+    cursor: pointer;
 
     &--sm {
         min-height: to-rem(40px);
@@ -41,6 +42,16 @@
         }
     }
 
+    &--secondary {
+        color: var(--button-secondary-text-default);
+        background: var(--button-secondary-background-default);
+        border: to-rem(1px) solid var(--button-secondary-border-default);
+
+        &:hover {
+            border: to-rem(1px) solid var(--button-secondary-border-hover);
+        }
+    }
+
     &--link {
         font-family: "Nunito variable", sans-serif;
         font-weight: 600;
@@ -49,6 +60,12 @@
         vertical-align: middle;
         text-decoration: underline;
         background: transparent;
-        cursor: pointer;
+    }
+
+    &__icon-16 {
+        width: to-rem(16px);
+        height: to-rem(16px);
+        margin-bottom: to-rem(-4px);
+        transform: rotate(90deg);
     }
 }
