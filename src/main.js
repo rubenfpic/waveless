@@ -32,8 +32,8 @@ const footerContent = createFooter();
 footerNode.appendChild(footerContent);
 
 // Toggle para mostrar el panel de filtros
-const filtersToggle = document.querySelector(".filters__toggle");
-const filtersPanel = document.querySelector("#filtersPanel");
+const filtersToggle = document.querySelector(".js-filters-toggle");
+const filtersPanel = document.querySelector(".js-filters-panel");
 const filtersClose = document.querySelector(".js-filters-close");
 filtersToggle.addEventListener("click", () => {
   filtersPanel.classList.toggle("is-visible");

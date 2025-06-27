@@ -9,14 +9,41 @@
     &__panel {
         display: none;
         background-color: var(--filters-background-default);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 90;
 
-        &.is-visible {
-            display: block;
+        @include media(tablet) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: to-rem(296px);
+            height: 100%;
+            box-shadow: to-rem(4px 4px 8px 0px) var(--filters-shadow);
+            z-index: 40;
         }
 
         @include media(desktop) {
             display: block;
+            box-shadow: none;
+            position: relative;
+            width: to-rem(264px);
+            border-radius: to-rem(24px);
         }
+
+        &.is-visible {
+            display: block;
+        }
+    }
+
+    &__panel-inner {
+        height: 100%;
+        overflow-y: auto;
     }
 
     &__header {
@@ -26,6 +53,10 @@
         align-items: center;
         padding: to-rem(16px 24px);
         border-bottom: to-rem(1px) solid var(--filters-divisor);
+
+        @include media(desktop) {
+            text-align: center;
+        }
     }
 
     &__title {
@@ -33,12 +64,20 @@
         font-size: to-rem(18px);
         line-height: to-rem(24px);
         padding: to-rem(12px 0);
+
+        @include media(desktop) {
+            width: 100%;
+        }
     }
 
     &__close {
         width: to-rem(24px);
         height: to-rem(24px);
         cursor: pointer;
+
+        @include media(desktop) {
+            display: none;
+        }
     }
 
     &__form {

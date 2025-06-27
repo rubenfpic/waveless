@@ -3,6 +3,8 @@
 
 .footer {
     width: 100%;
+    z-index: 50;
+    position: relative;
 
     &__layout {
         display: flex;

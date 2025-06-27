@@ -1,13 +1,13 @@
 export function createFilters() {
   const fragment = document.createRange().createContextualFragment(`
-    <div class="filters__layout">
-      <button class="filters__toggle">
-        <svg class="filters__icon" aria-hidden="true">
-          <use xlink:href="/src/assets/svg/sprite.svg#filtros"></use>
-        </svg>
-        <span>Ver filtros</span>
-      </button>
-      <div class="filters__panel is-visible" id="filtersPanel">
+    <button class="filters__toggle js-filters-toggle">
+      <svg class="filters__icon" aria-hidden="true">
+        <use xlink:href="/src/assets/svg/sprite.svg#filtros"></use>
+      </svg>
+      <span>Ver filtros</span>
+    </button>
+    <div class="filters__panel js-filters-panel" id="filtersPanel">
+      <div class="filters__panel-inner">
         <div class="filters__header">
           <h3 class="filters__title">Filtrar mi búsqueda</h3>
           <svg class="filters__close js-filters-close" aria-hidden="true">
@@ -77,6 +77,30 @@ export function createFilters() {
               <label for="surf">
                 <input class="input" type="checkbox" name="aventura" id="surf" value="surf">
                 Surf 
+                <span class="tooltip">
+                  <svg class="tooltip__icon" aria-hidden="true">
+                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
+                  </svg>
+                  <span class="tooltip__text">Lorem ipsum</span>
+                </span>
+              </label>
+            </div>
+            <div class="input-wrapper is-hidden">
+              <label for="snowboard">
+                <input class="input" type="checkbox" name="aventura" id="snowboard" value="snowboard">
+                Snowboard 
+                <span class="tooltip">
+                  <svg class="tooltip__icon" aria-hidden="true">
+                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
+                  </svg>
+                  <span class="tooltip__text">Lorem ipsum</span>
+                </span>
+              </label>
+            </div>
+            <div class="input-wrapper is-hidden">
+              <label for="paracaidas">
+                <input class="input" type="checkbox" name="aventura" id="paracaidas" value="paracaidas">
+                Paracaídas 
                 <span class="tooltip">
                   <svg class="tooltip__icon" aria-hidden="true">
                     <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
