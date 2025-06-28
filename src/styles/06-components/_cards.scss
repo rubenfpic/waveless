@@ -154,6 +154,10 @@
             }
         }
     }
+
+    &__show-details {
+        position: relative;
+    }
 }
 
 .details {
@@ -167,6 +171,17 @@
     overflow: hidden;
     z-index: 80;
     background: var(--overlay-background-default);
+
+    @include media(tablet) {
+        position: absolute;
+        top: to-rem(32px);
+        left: 0;
+        width: to-rem(400px);
+        height: auto;
+        border-radius: to-rem(24px);
+        border: to-rem(1px) solid var(--color-border-medium-default);
+        box-shadow: to-rem(0px 4px 8px 0px) var(--overlay-shadow);
+    }
 
     &.is-visible {
         display: block;
