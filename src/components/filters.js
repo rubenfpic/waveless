@@ -220,7 +220,12 @@ export function toggleFiltersPanel() {
 
   filtersToggle.addEventListener("click", () => {
     filtersPanel.classList.toggle("is-visible");
-    body.classList.toggle("no-scroll");
+    if (
+      window.getComputedStyle(filtersPanel).position == "fixed" &&
+      filtersPanel.classList.contains("is-visible")
+    ) {
+      body.classList.add("no-scroll");
+    }
   });
 
   filtersClose.addEventListener("click", () => {
@@ -256,5 +261,5 @@ export function toggleFiltersList() {
 }
 
 export function filterByAdventure() {
-  console.log("adadadadaasdasd");
+  console.log("filtrar por aventura");
 }
