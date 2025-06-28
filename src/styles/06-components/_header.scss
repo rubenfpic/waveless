@@ -14,24 +14,17 @@
         padding: to-rem(8px 16px);
 
         @include media(mobile) {
-            background-color: lightgreen !important;
             padding: to-rem(0 16px);
             height: to-rem(56px);
         }
 
         @include media(tablet) {
-            background-color: lightpink !important;
             padding: to-rem(0 24px);
             height: to-rem(80px);
         }
 
         @include media(laptop) {
-            background-color: lightgray !important;
             padding: to-rem(0 32px);
-        }
-
-        @include media(desktop) {
-            background-color: lightskyblue !important;
         }
 
         &::after {

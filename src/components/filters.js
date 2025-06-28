@@ -232,6 +232,11 @@ export function toggleFiltersPanel() {
     filtersPanel.classList.toggle("is-visible");
     body.classList.remove("no-scroll");
   });
+
+  window.addEventListener("resize", () => {
+    filtersPanel.classList.remove("is-visible");
+    body.classList.remove("no-scroll");
+  });
 }
 
 export function toggleFiltersFieldset() {
