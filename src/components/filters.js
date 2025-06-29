@@ -155,10 +155,8 @@ export function toggleFiltersList() {
   filtersFieldsets.forEach((el) => {
     const filtersListToggle = el.querySelector(".js-filters-list-toggle");
     const filtersListHiddenElements = el.querySelectorAll(".is-hidden");
-    console.log("ocultos", filtersListHiddenElements);
 
     if (filtersListToggle) {
-      console.log("el:", el);
       filtersListToggle.addEventListener("click", () => {
         filtersListHiddenElements.forEach((item) => {
           item.classList.toggle("is-hidden");
@@ -171,6 +169,25 @@ export function toggleFiltersList() {
   });
 }
 
-export function filterByAdventure() {
-  console.log("filtrar por aventura");
+export function activateAdventureFilter() {
+  const checkboxes = document.querySelectorAll('input[name="adventure"]');
+  const cards = document.querySelectorAll(".js-card");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const activeCheckboxes = Array.from(checkboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+
+      cards.forEach((card) => {
+        const cardValue = card.getAttribute("data-adventure");
+        const shouldShow =
+          activeCheckboxes.length === 0 || activeCheckboxes.includes(cardValue);
+
+        shouldShow
+          ? card.classList.remove("is-hidden")
+          : card.classList.add("is-hidden");
+      });
+    });
+  });
 }

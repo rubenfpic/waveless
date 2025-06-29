@@ -158,6 +158,10 @@
     &__show-details {
         position: relative;
     }
+
+    &.is-hidden {
+        display: none;
+    }
 }
 
 .details {

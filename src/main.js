@@ -8,6 +8,7 @@ import {
   toggleFiltersPanel,
   toggleFiltersFieldset,
   toggleFiltersList,
+  activateAdventureFilter,
 } from "./components/filters.js";
 import { createCards, showCardDetails } from "./components/cards.js";
 import { createFooter } from "./components/footer.js";
@@ -36,10 +37,9 @@ const footerNode = document.getElementById("footer");
 const footerContent = createFooter();
 footerNode.appendChild(footerContent);
 
+activateSlider();
+showCardDetails();
 toggleFiltersPanel();
 toggleFiltersFieldset();
 toggleFiltersList();
-
-showCardDetails();
-
-activateSlider();
+activateAdventureFilter();

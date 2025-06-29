@@ -33,7 +33,7 @@ function createDetails() {
 
 function createCard(image, adventure) {
   return `
-    <article class="card">
+    <article class="card js-card" data-adventure="${adventure}">
       <div class="card__image">
         <img src="/src/assets/img/${image}" alt="Destino destacado" />
         <span class="card__tag">${adventure}</span>
