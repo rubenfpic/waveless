@@ -19,7 +19,8 @@
         text-align: center;
         width: 100%;
         height: to-rem(400px);
-        // display: none;
+        background-position: center;
+        background-size: cover;
         flex-shrink: 0;
 
         &.is-visible {
@@ -103,7 +104,6 @@
         svg {
             width: to-rem(24px);
             height: to-rem(24px);
-            // padding: to-rem(8px 10px);
         }
 
         &--prev {

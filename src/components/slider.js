@@ -20,17 +20,18 @@ function createSliderItem(image, country, visible = "") {
   `;
 }
 
+function createDot(index) {
+  return `
+    <button class="slider__dot js-slider-dot" aria-label="Ir al slide ${
+      index + 1
+    }"></button>
+  `;
+}
+
 export function createSlider() {
-  // ${createSliderItem("slider1.png", "Australia", "is-visible")}
-  // ${createSliderItem("slider2.png", "Brasil")}
-  // ${createSliderItem("slider3.png", "Egipto")}
   const fragment = document.createRange().createContextualFragment(`
     <div class="slider__layout">
-      <div class="slider__track js-slider-track">
-
-
-
-      </div>
+      <div class="slider__track js-slider-track"></div>
       <button type="button" class="slider__nav-button slider__nav-button--prev js-slider-prev" aria-label="Anterior">
         <svg aria-hidden="true">
           <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
@@ -41,11 +42,7 @@ export function createSlider() {
           <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
         </svg>
       </button>
-      <div class="slider__dots">
-        <button class="slider__dot is-active" aria-label="Slide 1"></button>
-        <button class="slider__dot" aria-label="Slide 2"></button>
-        <button class="slider__dot" aria-label="Slide 3"></button>
-      </div>
+      <div class="slider__dots js-dots-container"></div>
     </div>
   `);
 
@@ -56,80 +53,94 @@ export function activateSlider() {
   const prevButton = document.querySelector(".js-slider-prev");
   const nextButton = document.querySelector(".js-slider-next");
   const sliderTrack = document.querySelector(".js-slider-track");
-  const sliderItems = document.querySelectorAll(".js-slider-item");
+  const dotsContainer = document.querySelector(".js-dots-container");
   const sliderWidth = document
     .querySelector(".js-slider")
     .getBoundingClientRect().width;
 
   let currentItem = 0;
 
-  // Helpers
+  // Get index
   //
-  function getPrevItem(index, length) {
+  function getPrevIndex(index, length) {
     return index == 0 ? length - 1 : index - 1;
   }
-  function getNextItem(index, length) {
+  function getNextIndex(index, length) {
     return index == length - 1 ? 0 : index + 1;
   }
 
-  // Añado el item actual
+  // Add items
   //
-  const sliderCurrentItemHTML = createSliderItem(
-    slidesData[currentItem].image,
-    slidesData[currentItem].country
-  );
-  const sliderCurrentItemNode = document
-    .createRange()
-    .createContextualFragment(sliderCurrentItemHTML);
-  sliderTrack.append(sliderCurrentItemNode);
-
-  // Añado el item anterior
-  //
-  const sliderPrevItemHTML = createSliderItem(
-    slidesData[getPrevItem(currentItem, slidesData.length)].image,
-    slidesData[getPrevItem(currentItem, slidesData.length)].country
-  );
-  const sliderPrevItemNode = document
-    .createRange()
-    .createContextualFragment(sliderPrevItemHTML);
-  sliderTrack.prepend(sliderPrevItemNode);
-
-  // Añado el item posterior
-  //
-  const sliderNextItemHTML = createSliderItem(
-    slidesData[getNextItem(currentItem, slidesData.length)].image,
-    slidesData[getNextItem(currentItem, slidesData.length)].country
-  );
-  const sliderNextItemNode = document
-    .createRange()
-    .createContextualFragment(sliderNextItemHTML);
-  sliderTrack.append(sliderNextItemNode);
-
-  // Dejar el currentItem en el centro
-  //
-  sliderTrack.style.transform = `translateX(-${sliderWidth}px)`;
-  console.log("anchura: ", sliderWidth);
-
-  // setCurrentItem
-  //
-  function showSlide(index) {
-    currentItem = index;
-    sliderTrack.style.transform = `translateX(-${currentItem * sliderWidth}px)`;
+  function addCurrentItem() {
+    const sliderCurrentItemHTML = createSliderItem(
+      slidesData[currentItem].image,
+      slidesData[currentItem].country
+    );
+    const sliderCurrentItemNode = document
+      .createRange()
+      .createContextualFragment(sliderCurrentItemHTML);
+    sliderTrack.append(sliderCurrentItemNode);
+  }
+  function addPrevItem() {
+    const sliderPrevItemHTML = createSliderItem(
+      slidesData[getPrevIndex(currentItem, slidesData.length)].image,
+      slidesData[getPrevIndex(currentItem, slidesData.length)].country
+    );
+    const sliderPrevItemNode = document
+      .createRange()
+      .createContextualFragment(sliderPrevItemHTML);
+    sliderTrack.prepend(sliderPrevItemNode);
+  }
+  function addNextItem() {
+    const sliderNextItemHTML = createSliderItem(
+      slidesData[getNextIndex(currentItem, slidesData.length)].image,
+      slidesData[getNextIndex(currentItem, slidesData.length)].country
+    );
+    const sliderNextItemNode = document
+      .createRange()
+      .createContextualFragment(sliderNextItemHTML);
+    sliderTrack.append(sliderNextItemNode);
   }
 
-  // Ir al elemento previo
-  //
+  function updateDots() {
+    const sliderDots = document.querySelectorAll(".js-slider-dot");
+    sliderDots.forEach((el, index) => {
+      el.classList.remove("is-active");
+      index == currentItem &&
+        document
+          .querySelectorAll(".js-slider-dot")
+          [index].classList.add("is-active");
+    });
+  }
+
+  function showSlide(index) {
+    currentItem = index;
+    sliderTrack.style.transform = `translateX(-${sliderWidth * currentItem}px)`;
+    updateDots();
+  }
+
   prevButton.addEventListener("click", () => {
-    currentItem = getPrevItem(currentItem, slidesData.length);
-    console.log("currentItem", currentItem);
+    currentItem = getPrevIndex(currentItem, slidesData.length);
     showSlide(currentItem);
   });
 
-  // Ir al elemento siguiente
-  //
   nextButton.addEventListener("click", () => {
-    currentItem = getNextItem(currentItem, slidesData.length);
-    console.log("currentItem", currentItem);
+    currentItem = getNextIndex(currentItem, slidesData.length);
     showSlide(currentItem);
   });
+
+  slidesData.forEach((el, index) => {
+    const dotHTML = createDot(index);
+    const dotNode = document.createRange().createContextualFragment(dotHTML);
+    const dotButton = dotNode.querySelector(".js-slider-dot");
+    dotButton.addEventListener("click", () => {
+      showSlide(index);
+    });
+    dotsContainer.append(dotNode);
+  });
+
+  addCurrentItem();
+  addPrevItem();
+  addNextItem();
+  updateDots();
 }
