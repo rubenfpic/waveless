@@ -98,12 +98,12 @@
         top: 0;
         width: 100%;
         height: to-rem(48px);
+        gap: to-rem(8px);
     }
 
     &__icon {
-        width: to-rem(24px);
-        height: to-rem(24px);
-        margin-right: to-rem(8px);
+        width: to-rem(28px);
+        height: to-rem(28px);
     }
 
     &__legend-text {
@@ -129,6 +129,7 @@
 
         &.is-collapsed {
             .input-wrapper,
+            .checkbox-wrapper,
             .button {
                 display: none;
             }
@@ -173,10 +174,5 @@
         @include media(desktop) {
             display: none;
         }
-    }
-
-    &__icon {
-        width: to-rem(24px);
-        height: to-rem(24px);
     }
 }

@@ -1,6 +1,7 @@
 @use "../02-tools/functions" as *;
 
-.input-wrapper {
+.input-wrapper,
+.checkbox-wrapper {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -22,6 +23,13 @@
         transform: translateY(-50%);
         color: var(--form-text-input-text-default);
     }
+}
+
+.checkbox-wrapper label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: to-rem(8px);
 }
 
 .input {

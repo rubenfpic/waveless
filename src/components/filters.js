@@ -1,3 +1,41 @@
+function createLegend(icon, name) {
+  return `
+    <legend class="filters__legend js-legend">
+      <svg class="filters__icon" aria-hidden="true">
+        <use xlink:href="/src/assets/svg/sprite.svg#${icon}"></use>
+      </svg>
+      <span class="filters__legend-text">${name}</span>
+      <svg class="filters__chevron js-chevron" aria-hidden="true">
+        <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
+      </svg>
+    </legend>
+  `;
+}
+
+function createCheckbox(group, filter, label) {
+  return `
+    <label for="${filter}">
+      <input class="input" type="checkbox" name="${group}" id="${filter}" value="${filter}">
+      ${label} 
+      <span class="tooltip">
+        <svg class="tooltip__icon" aria-hidden="true">
+          <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
+        </svg>
+        <span class="tooltip__text">Lorem ipsum</span>
+      </span>
+    </label>
+  `;
+}
+
+function createInput(icon, name, placeholder) {
+  return `
+    <svg class="input-wrapper__icon" aria-hidden="true">
+      <use xlink:href="/src/assets/svg/sprite.svg#${icon}"></use>
+    </svg>
+    <input class="input input--icon" type="text" name="${name}" placeholder="${placeholder}">
+  `;
+}
+
 export function createFilters() {
   const fragment = document.createRange().createContextualFragment(`
     <button class="filters__toggle js-filters-toggle">
@@ -15,193 +53,56 @@ export function createFilters() {
           </svg>
         </div>
         <form class="filters__form">
-          <fieldset class="filters__fieldset" id="aventuraFieldset">
-            <legend class="filters__legend js-legend">
-              <svg class="filters__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#aventura"></use>
-              </svg>
-              <span class="filters__legend-text">Aventura</span>
-              <svg class="filters__chevron js-chevron" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
-              </svg>
-            </legend>
-            <div class="input-wrapper">
-              <label for="quads">
-                <input class="input" type="checkbox" name="aventura" id="quads" value="quads">
-                Quads 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+          <fieldset class="filters__fieldset js-filters-fieldset" id="adventureFieldset">
+            ${createLegend("aventura", "Aventura")}
+            <div class="checkbox-wrapper">
+              ${createCheckbox("adventure", "quads", "Quads")}
             </div>
-            <div class="input-wrapper">
-              <label for="parapente">
-                <input class="input" type="checkbox" name="aventura" id="parapente" value="parapente">
-                Parapente 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper">
+              ${createCheckbox("adventure", "parapente", "Parapente")}
             </div>
-            <div class="input-wrapper">
-              <label for="rafting">
-                <input class="input" type="checkbox" name="aventura" id="rafting" value="rafting">
-                Rafting 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper">
+              ${createCheckbox("adventure", "rafting", "Rafting")}
             </div>
-            <div class="input-wrapper is-hidden">
-              <label for="buceo">
-                <input class="input" type="checkbox" name="aventura" id="buceo" value="buceo">
-                Buceo 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper is-hidden">
+              ${createCheckbox("adventure", "buceo", "Buceo")}
             </div>
-            <div class="input-wrapper is-hidden">
-              <label for="surf">
-                <input class="input" type="checkbox" name="aventura" id="surf" value="surf">
-                Surf 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper is-hidden">
+              ${createCheckbox("adventure", "surf", "Surf")}
             </div>
-            <div class="input-wrapper is-hidden">
-              <label for="snowboard">
-                <input class="input" type="checkbox" name="aventura" id="snowboard" value="snowboard">
-                Snowboard 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper is-hidden">
+              ${createCheckbox("adventure", "snowboard", "Snowboard")}
             </div>
-            <div class="input-wrapper is-hidden">
-              <label for="paracaidas">
-                <input class="input" type="checkbox" name="aventura" id="paracaidas" value="paracaidas">
-                Paracaídas 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper is-hidden">
+              ${createCheckbox("adventure", "paracaidas", "Paracaídas")}
             </div>
-            <button class="button button--link" id="aventuraToggle" type="button">Ver más</button>
+            <button class="button button--link js-filters-list-toggle" id="adventureToggle" type="button">Ver más</button>
           </fieldset>
-          <fieldset class="filters__fieldset is-collapsed" id="destinosFieldset">
-            <legend class="filters__legend js-legend">
-              <svg class="filters__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#destinos"></use>
-              </svg>
-              <span class="filters__legend-text">Destinos</span>
-              <svg class="filters__chevron js-chevron" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
-              </svg>
-            </legend>
-            <div class="input-wrapper">
-              <label for="asia">
-                <input class="input" type="checkbox" name="destinos" id="asia" value="asia">
-                Asia 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+          <fieldset class="filters__fieldset js-filters-fieldset is-collapsed" id="destinationFieldset">
+            ${createLegend("destinos", "Destinos")}
+            <div class="checkbox-wrapper">
+              ${createCheckbox("destination", "asia", "Asia")}
             </div>
-            <div class="input-wrapper">
-              <label for="america">
-                <input class="input" type="checkbox" name="destinos" id="america" value="america">
-                América 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper">
+              ${createCheckbox("destination", "america", "América")}
             </div>
           </fieldset>
-          <fieldset class="filters__fieldset is-collapsed" id="alojamientoFieldset">
-            <legend class="filters__legend js-legend">
-              <svg class="filters__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#alojamiento"></use>
-              </svg>
-              <span class="filters__legend-text">Alojamiento</span>
-              <svg class="filters__chevron js-chevron" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
-              </svg>
-            </legend>
-            <div class="input-wrapper">
-              <label for="hotel">
-                <input class="input" type="checkbox" name="alojamiento" id="hotel" value="hotel">
-                Hotel 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+          <fieldset class="filters__fieldset js-filters-fieldset is-collapsed" id="accommodationFieldset">
+            ${createLegend("alojamiento", "Alojamiento")}
+            <div class="checkbox-wrapper">
+              ${createCheckbox("accommodation", "hotel", "Hotel")}
             </div>
-            <div class="input-wrapper">
-              <label for="apartamento">
-                <input class="input" type="checkbox" name="alojamiento" id="apartamento" value="apartamento">
-                Apartamento 
-                <span class="tooltip">
-                  <svg class="tooltip__icon" aria-hidden="true">
-                    <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
-                  </svg>
-                  <span class="tooltip__text">Lorem ipsum</span>
-                </span>
-              </label>
+            <div class="checkbox-wrapper">
+              ${createCheckbox("accommodation", "apartamento", "Apartamento")}
             </div>
           </fieldset>
-          <fieldset class="filters__fieldset is-collapsed">
-            <legend class="filters__legend js-legend">
-              <svg class="filters__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#precio"></use>
-              </svg>
-              <span class="filters__legend-text">Precio</span>
-              <svg class="filters__chevron js-chevron" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
-              </svg>
-            </legend>
+          <fieldset class="filters__fieldset js-filters-fieldset is-collapsed" id="priceFieldset">
+            ${createLegend("precio", "Precio")}
             <div class="input-wrapper">
-              <svg class="input-wrapper__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#precio"></use>
-              </svg>
-              <input class="input input--icon" type="text" name="precio" placeholder="Mínimo">
+              ${createInput("precio", "precio", "Mínimo")}
             </div>
             <div class="input-wrapper">
-              <svg class="input-wrapper__icon" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#precio"></use>
-              </svg>
-              <input class="input input--icon" type="text" name="precio" placeholder="Máximo">
+              ${createInput("precio", "precio", "Máximo")}
             </div>
           </fieldset>
         </form>
@@ -249,19 +150,24 @@ export function toggleFiltersFieldset() {
 }
 
 export function toggleFiltersList() {
-  const aventuraButton = document.querySelector("#aventuraToggle");
-  const aventuraList = document.querySelectorAll(
-    "#aventuraFieldset .input-wrapper.is-hidden"
-  );
-  aventuraButton.addEventListener("click", () => {
-    aventuraList.forEach((item) => {
-      item.classList.toggle("is-hidden");
-    });
-    aventuraButton.textContent = !document.querySelector(
-      "#aventuraFieldset .input-wrapper.is-hidden"
-    )
-      ? "Ver menos"
-      : "Ver más";
+  const filtersFieldsets = document.querySelectorAll(".js-filters-fieldset");
+
+  filtersFieldsets.forEach((el) => {
+    const filtersListToggle = el.querySelector(".js-filters-list-toggle");
+    const filtersListHiddenElements = el.querySelectorAll(".is-hidden");
+    console.log("ocultos", filtersListHiddenElements);
+
+    if (filtersListToggle) {
+      console.log("el:", el);
+      filtersListToggle.addEventListener("click", () => {
+        filtersListHiddenElements.forEach((item) => {
+          item.classList.toggle("is-hidden");
+        });
+        filtersListToggle.textContent = !document.querySelector(".is-hidden")
+          ? "Ver menos"
+          : "Ver más";
+      });
+    }
   });
 }
 
