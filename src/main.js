@@ -1,7 +1,7 @@
 import "./styles/main.scss";
 
 import { createHeader } from "./components/header.js";
-import { createSlider } from "./components/slider.js";
+import { createSlider, activateSlider } from "./components/slider.js";
 import { createIntro } from "./components/intro.js";
 import {
   createFilters,
@@ -41,3 +41,5 @@ toggleFiltersFieldset();
 toggleFiltersList();
 
 showCardDetails();
+
+activateSlider();

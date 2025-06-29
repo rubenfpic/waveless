@@ -1,8 +1,10 @@
 @use "../01-settings/fonts";
+@use "../01-settings/tokens";
 @use "../02-tools/functions" as *;
 
 body {
     font-family: "Nunito variable", sans-serif;
+    background: var(--basic-medium-alpha);
 }
 
 h1,

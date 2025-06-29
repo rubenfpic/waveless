@@ -5,10 +5,26 @@
 .slider {
     position: relative;
 
+    &__layout {
+        overflow-x: hidden;
+    }
+
+    &__track {
+        transition: transform ease-in 1s;
+        display: flex;
+        flex-direction: row;
+    }
+
     &__item {
         text-align: center;
         width: 100%;
         height: to-rem(400px);
+        // display: none;
+        flex-shrink: 0;
+
+        &.is-visible {
+            display: block;
+        }
     }
 
     &__content {
