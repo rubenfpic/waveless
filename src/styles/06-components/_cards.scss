@@ -17,6 +17,10 @@
         gap: to-rem(24px);
         padding-bottom: to-rem(8px);
         width: auto;
+
+        &.is-hidden {
+            display: none;
+        }
     }
 
     &__title {
@@ -35,6 +39,10 @@
         @include media(tablet) {
             max-width: to-rem(264px);
             min-height: to-rem(376px);
+        }
+
+        &.is-hidden {
+            display: none;
         }
     }
 }

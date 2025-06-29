@@ -172,6 +172,7 @@ export function toggleFiltersList() {
 export function activateAdventureFilter() {
   const checkboxes = document.querySelectorAll('input[name="adventure"]');
   const cards = document.querySelectorAll(".js-card");
+  const cardsLists = document.querySelectorAll(".js-cards-list");
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
@@ -185,8 +186,14 @@ export function activateAdventureFilter() {
           activeCheckboxes.length === 0 || activeCheckboxes.includes(cardValue);
 
         shouldShow
-          ? card.classList.remove("is-hidden")
-          : card.classList.add("is-hidden");
+          ? card.closest(".js-cards-item").classList.remove("is-hidden")
+          : card.closest(".js-cards-item").classList.add("is-hidden");
+      });
+
+      cardsLists.forEach((el) => {
+        el.querySelector(".js-cards-item:not(.is-hidden)")
+          ? el.classList.remove("is-hidden")
+          : el.classList.add("is-hidden");
       });
     });
   });

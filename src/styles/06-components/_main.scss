@@ -48,7 +48,7 @@
     }
 
     &__cards {
-        width: auto;
+        width: 100%;
 
         @include media(desktop) {
             max-width: to-rem(840px);

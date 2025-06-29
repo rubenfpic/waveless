@@ -66,17 +66,35 @@ function createCard(image, adventure) {
 export function createCards() {
   const fragment = document.createRange().createContextualFragment(`
     <div class="cards__layout">
-      <div class="cards__list">
-        <h2 class="cards__title">Asia</h2>
-        <div class="cards__item">${createCard("card1.png", "quads")}</div>
-        <div class="cards__item">${createCard("card2.png", "parapente")}</div>
-        <div class="cards__item">${createCard("card3.png", "quads")}</div>
+      <div class="cards__list js-cards-list">
+        <h2 class="cards__title js-cards-title">Asia</h2>
+        <div class="cards__item js-cards-item">${createCard(
+          "card1.png",
+          "quads"
+        )}</div>
+        <div class="cards__item js-cards-item">${createCard(
+          "card2.png",
+          "parapente"
+        )}</div>
+        <div class="cards__item js-cards-item">${createCard(
+          "card3.png",
+          "quads"
+        )}</div>
       </div>
-      <div class="cards__list">
-        <h2 class="cards__title">América</h2>
-        <div class="cards__item">${createCard("card1.png", "surf")}</div>
-        <div class="cards__item">${createCard("card2.png", "snowboard")}</div>
-        <div class="cards__item">${createCard("card3.png", "buceo")}</div>
+      <div class="cards__list js-cards-list">
+        <h2 class="cards__title js-cards-title">América</h2>
+        <div class="cards__item js-cards-item">${createCard(
+          "card1.png",
+          "surf"
+        )}</div>
+        <div class="cards__item js-cards-item">${createCard(
+          "card2.png",
+          "snowboard"
+        )}</div>
+        <div class="cards__item js-cards-item">${createCard(
+          "card3.png",
+          "buceo"
+        )}</div>
       </div>
     </div>
   `);
