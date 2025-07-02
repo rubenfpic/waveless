@@ -21,7 +21,7 @@ function createCard({
         <span class="card__tag">${adventure}</span>
       </div>
       <div class="card__body">
-        <p class="card__location"><strong>Marruecos, África</strong> 9 días</p>
+        <p class="card__location"><strong>${destination}</strong> ${days} días</p>
         <h3 class="card__title">Descubre Bangkok con Iberojet</h3>
       </div>
       <div class="card__footer">
