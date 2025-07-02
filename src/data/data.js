@@ -1,0 +1,62 @@
+export const slidesData = [
+  { image: "slider1.png", country: "Australia" },
+  { image: "slider2.png", country: "Brasil" },
+  { image: "slider3.png", country: "Egipto" },
+];
+
+export const cardsData = [
+  {
+    image: "card1.png",
+    adventure: "quads",
+    destination: "Marruecos, África",
+    days: "2",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+  {
+    image: "card2.png",
+    adventure: "parapente",
+    destination: "Marruecos, África",
+    days: "3",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+  {
+    image: "card3.png",
+    adventure: "quads",
+    destination: "Marruecos, África",
+    days: "4",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+  {
+    image: "card1.png",
+    adventure: "surf",
+    destination: "Marruecos, África",
+    days: "6",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+  {
+    image: "card2.png",
+    adventure: "snowboard",
+    destination: "Marruecos, África",
+    days: "7",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+  {
+    image: "card3.png",
+    adventure: "buceo",
+    destination: "Marruecos, África",
+    days: "8",
+    priceBeforeTaxes: "1.124,00 €",
+    taxes: "3,43 €",
+    finalPrice: "3555,43 €",
+  },
+];

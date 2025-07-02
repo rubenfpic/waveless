@@ -3,8 +3,17 @@ import {
   openPopover,
   closePopover,
 } from "../components/popover.js";
+import { cardsData } from "../data/data.js";
 
-function createCard(image, adventure) {
+function createCard({
+  image,
+  adventure,
+  destination,
+  days,
+  priceBeforeTaxes,
+  taxes,
+  finalPrice,
+}) {
   return `
     <article class="card js-card" data-adventure="${adventure}">
       <div class="card__image">
@@ -28,11 +37,11 @@ function createCard(image, adventure) {
               </svg>
             </button>
             ${createPopover(
-              "Marruecos, África",
-              7,
-              "1.124,00 €",
-              "3,43 €",
-              "4.455,00 €"
+              destination,
+              days,
+              priceBeforeTaxes,
+              taxes,
+              finalPrice
             )}
           </div>
         </div>
@@ -47,33 +56,15 @@ export function createCards() {
     <div class="cards__layout">
       <div class="cards__list js-cards-list">
         <h2 class="cards__title js-cards-title">Asia</h2>
-        <div class="cards__item js-cards-item">${createCard(
-          "card1.png",
-          "quads"
-        )}</div>
-        <div class="cards__item js-cards-item">${createCard(
-          "card2.png",
-          "parapente"
-        )}</div>
-        <div class="cards__item js-cards-item">${createCard(
-          "card3.png",
-          "quads"
-        )}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[0])}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[1])}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[2])}</div>
       </div>
       <div class="cards__list js-cards-list">
         <h2 class="cards__title js-cards-title">América</h2>
-        <div class="cards__item js-cards-item">${createCard(
-          "card1.png",
-          "surf"
-        )}</div>
-        <div class="cards__item js-cards-item">${createCard(
-          "card2.png",
-          "snowboard"
-        )}</div>
-        <div class="cards__item js-cards-item">${createCard(
-          "card3.png",
-          "buceo"
-        )}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[3])}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[4])}</div>
+        <div class="cards__item js-cards-item">${createCard(cardsData[5])}</div>
       </div>
     </div>
   `);

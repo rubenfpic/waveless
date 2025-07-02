@@ -1,8 +1,4 @@
-const slidesData = [
-  { image: "slider1.png", country: "Australia" },
-  { image: "slider2.png", country: "Brasil" },
-  { image: "slider3.png", country: "Egipto" },
-];
+import { slidesData } from "../data/data.js";
 
 function createSliderItem(image, country, visible = "") {
   return `
