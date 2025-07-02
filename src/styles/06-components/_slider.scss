@@ -137,6 +137,7 @@
     &__dot {
         width: to-rem(10px);
         height: to-rem(10px);
+        padding: 0;
         border-radius: to-rem(5px);
         border: to-rem(1px) solid var(--slider-indicator-border-default);
         background: var(--slider-indicator-background-default);
