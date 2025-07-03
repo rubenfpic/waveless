@@ -59,7 +59,11 @@ export function createHeader() {
     nav.classList.toggle("is-open");
     document.body.classList.toggle("no-scroll");
   });
+
+  window.addEventListener("resize", () => {
+    nav.classList.remove("is-open");
+    document.body.classList.remove("no-scroll");
+  });
+
   return fragment;
 }
-
-export function toggleHeaderMobile() {}
