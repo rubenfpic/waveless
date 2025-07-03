@@ -6,16 +6,16 @@
 
     &__layout {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        position: relative;
+
         background: var(--header-background-default);
         padding: to-rem(8px 16px);
 
         @include media(mobile) {
             padding: to-rem(0 16px);
             height: to-rem(56px);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
 
         @include media(tablet) {
@@ -24,28 +24,40 @@
         }
 
         @include media(laptop) {
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            position: relative;
             padding: to-rem(0 32px);
-        }
 
-        &::after {
-            content: "";
-            width: 100%;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            border-bottom: to-rem(1px) solid var(--tab-navbar-selection-indicator-background-active);
+            &::after {
+                content: "";
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                border-bottom: to-rem(1px) solid var(--tab-navbar-selection-indicator-background-active);
+            }
         }
     }
 
     &__actions {
-        display: none;
+        z-index: 60;
+
+        .button--primary {
+            display: none;
+        }
 
         @include media(laptop) {
-            display: block;
+            .button--primary {
+                display: block;
+            }
         }
     }
 
     &__burger {
+        background: transparent;
+
         @include media(laptop) {
             display: none;
         }

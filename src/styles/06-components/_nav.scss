@@ -6,27 +6,123 @@
     position: relative;
     font-weight: 600;
 
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90vw;
+    height: 100vh;
+    padding-top: to-rem(48px);
+    background: var(--header-background-default);
+    box-shadow: to-rem(4px 0px 8px 4px) var(--overlay-shadow);
+    z-index: 60;
+
+    @include media(tablet) {
+        padding-top: to-rem(72px);
+        width: 50vw;
+    }
+
     @include media(laptop) {
+        box-shadow: none;
+        background: transparent;
         display: flex;
+        position: relative;
+        width: auto;
+        height: auto;
+        padding-top: 0;
+    }
 
-        &__list {
-            display: flex;
+    &__icon {
+        margin-right: to-rem(6px);
+        height: to-rem(24px);
+        width: to-rem(24px);
+        color: inherit;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+
+        @include media(laptop) {
             gap: to-rem(16px);
+            flex-direction: row;
+        }
+
+        @include media(desktop) {
+            gap: to-rem(72px);
+        }
+    }
+
+    &__item {
+        list-style: none;
+
+        @include media(mobile) {
+            padding: to-rem(0 0);
+            border-top: to-rem(1px) solid var(--color-border-light-default);
+            &:last-of-type {
+                border-bottom: to-rem(1px) solid var(--color-border-medium-default);
+            }
+        }
+
+        @include media(laptop) {
             padding: 0;
-            margin: 0;
+            border-top: none;
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+
+    &__text {
+        @include media(laptop) {
+            text-align: center;
+        }
+    }
+
+    &__link {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        color: var(--tab-navbar-text-default);
+        position: relative;
+        padding: to-rem(16px 32px);
+
+        &.is-active {
+            font-weight: 700;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                border-left: to-rem(2px) solid var(--tab-navbar-selection-indicator-background-active);
+            }
+
+            &::before {
+                content: "";
+                transform: translateX(-5%) translateY(5%) rotate(90deg);
+                position: absolute;
+                left: 0;
+                border-left: to-rem(9px) solid transparent;
+                border-right: to-rem(9px) solid transparent;
+                border-bottom: to-rem(12px) solid var(--tab-navbar-selection-indicator-background-active);
+            }
+
+            &:hover {
+                &::before,
+                &::after {
+                    border-bottom-color: var(--tab-navbar-selection-indicator-background-active-hover);
+                }
+            }
         }
 
-        &__item {
-            list-style: none;
-        }
-
-        &__link {
-            display: flex;
-            align-items: center;
+        @include media(laptop) {
             height: to-rem(80px);
-            position: relative;
-            text-decoration: none;
-            color: var(--tab-navbar-text-default);
+            padding: 0;
 
             &.is-active {
                 font-weight: 700;
@@ -37,6 +133,7 @@
                     position: absolute;
                     left: 0;
                     bottom: 0;
+                    border-left: none;
                     border-bottom: to-rem(2px) solid var(--tab-navbar-selection-indicator-background-active);
                 }
 
@@ -63,22 +160,9 @@
                 color: var(--tab-navbar-text-hover);
             }
         }
-
-        &__icon {
-            margin-right: to-rem(6px);
-            height: to-rem(24px);
-            width: to-rem(24px);
-            color: inherit;
-        }
-
-        &__text {
-            text-align: center;
-        }
     }
 
-    @include media(desktop) {
-        &__list {
-            gap: to-rem(72px);
-        }
+    &.is-open {
+        display: block;
     }
 }

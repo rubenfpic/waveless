@@ -62,6 +62,17 @@
         background: transparent;
     }
 
+    &--icon-32 {
+        width: to-rem(32px);
+        height: to-rem(32px);
+
+        svg {
+            width: to-rem(24px);
+            height: to-rem(24px);
+            margin-bottom: to-rem(-4px);
+        }
+    }
+
     &__icon-16 {
         width: to-rem(16px);
         height: to-rem(16px);
