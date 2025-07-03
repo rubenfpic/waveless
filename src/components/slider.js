@@ -56,8 +56,6 @@ export function activateSlider() {
 
   let currentItem = 0;
 
-  // Get index
-  //
   function getPrevIndex(index, length) {
     return index == 0 ? length - 1 : index - 1;
   }
@@ -65,8 +63,6 @@ export function activateSlider() {
     return index == length - 1 ? 0 : index + 1;
   }
 
-  // Add items
-  //
   function addCurrentItem() {
     const sliderCurrentItemHTML = createSliderItem(
       slidesData[currentItem].image,

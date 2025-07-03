@@ -59,7 +59,11 @@
         background: transparent;
         position: absolute;
         left: calc(100vw - 4rem);
-        top: to-rem(16px);
+        top: to-rem(8px);
+
+        @include media(mobile) {
+            top: to-rem(16px);
+        }
 
         @include media(tablet) {
             top: to-rem(24px);
