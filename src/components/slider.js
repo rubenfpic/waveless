@@ -2,7 +2,7 @@ import { slidesData } from "../data/data.js";
 
 function createSliderItem(image, country, visible = "") {
   return `
-    <div class="slider__item ${visible} js-slider-item" style="background-image: url('/src/assets/img/${image}');" role="img"
+    <div class="slider__item ${visible} js-slider-item" style="background-image: url('./assets/img/${image}');" role="img"
   aria-label="Imagen de un paisaje de ${country}">
       <div class="slider__content">
         <div class="slider__text">
@@ -31,12 +31,12 @@ export function createSlider() {
       <div class="slider__track js-slider-track"></div>
       <button type="button" class="slider__nav-button slider__nav-button--prev js-slider-prev" aria-label="Anterior">
         <svg aria-hidden="true">
-          <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
+          <use xlink:href="./assets/svg/sprite.svg#chevron"></use>
         </svg>
       </button>
       <button type="button" class="slider__nav-button slider__nav-button--next js-slider-next" aria-label="Siguiente">
         <svg aria-hidden="true">
-          <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
+          <use xlink:href="./assets/svg/sprite.svg#chevron"></use>
         </svg>
       </button>
       <div class="slider__dots js-dots-container"></div>

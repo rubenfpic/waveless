@@ -12,7 +12,7 @@ export function createPopover(
         <h3 class="popover__title" id="title-${id}">Desglose de precios</h3>
         <button type="button" class="button button--icon-32 js-popover-close" aria-label="Cerrar desglose de precios">
           <svg aria-hidden="true">
-            <use xlink:href="/src/assets/svg/sprite.svg#cerrar"></use>
+            <use xlink:href="./assets/svg/sprite.svg#cerrar"></use>
           </svg>
         </button>
       </div>

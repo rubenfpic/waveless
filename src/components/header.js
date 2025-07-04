@@ -2,7 +2,7 @@ export function createHeader() {
   const fragment = document.createRange().createContextualFragment(`
     <div class="header__layout">
       <a href="/" class="logo" aria-label="Inicio">
-        <img src="/src/assets/svg/logo.svg" class="logo__img" alt="Waveless" />
+        <img src="./assets/svg/logo.svg" class="logo__img" alt="Waveless" />
       </a>
       <div class="header__nav">
         <nav class="nav js-nav" id="nav" aria-label="Menú principal">
@@ -10,7 +10,7 @@ export function createHeader() {
             <li class="nav__item">
               <a href="#" class="nav__link is-active" aria-current="page">
                 <svg class="nav__icon" aria-hidden="true">
-                  <use xlink:href="/src/assets/svg/sprite.svg#aventura"></use>
+                  <use xlink:href="./assets/svg/sprite.svg#aventura"></use>
                 </svg>
                 <span class="nav__text" data-text="Aventura">Aventura</span>
               </a>
@@ -18,7 +18,7 @@ export function createHeader() {
             <li class="nav__item">
               <a href="#" class="nav__link">
                 <svg class="nav__icon" aria-hidden="true">
-                  <use xlink:href="/src/assets/svg/sprite.svg#destinos"></use>
+                  <use xlink:href="./assets/svg/sprite.svg#destinos"></use>
                 </svg>
                 <span class="nav__text" data-text="Destinos">Destinos</span>
               </a>
@@ -26,7 +26,7 @@ export function createHeader() {
             <li class="nav__item">
               <a href="#" class="nav__link">
                 <svg class="nav__icon" aria-hidden="true">
-                  <use xlink:href="/src/assets/svg/sprite.svg#alojamiento"></use>
+                  <use xlink:href="./assets/svg/sprite.svg#alojamiento"></use>
                 </svg>
                 <span class="nav__text" data-text="Alojamiento">Alojamiento</span>
               </a>
@@ -43,7 +43,7 @@ export function createHeader() {
         <button type="button" class="button button--base button--primary">Reserva</button>
         <button type="button" class="header__burger js-burger-toggle button button--icon-32" aria-label="Abrir el menú principal" aria-controls="nav" aria-expanded="false">
           <svg class="nav__burger-icon" aria-hidden="true">
-            <use xlink:href="/src/assets/svg/sprite.svg#burger"></use>
+            <use xlink:href="./assets/svg/sprite.svg#burger"></use>
           </svg>
         </button>
       </div>

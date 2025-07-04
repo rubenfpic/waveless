@@ -18,7 +18,7 @@ function createCard({
   return `
     <article class="card js-card" data-adventure="${adventure}">
       <div class="card__image">
-        <img src="/src/assets/img/${image}" alt="Imagen de ${adventure} en ${destination}" />
+        <img src="./assets/img/${image}" alt="Imagen de ${adventure} en ${destination}" />
         <span class="card__tag">${adventure}</span>
       </div>
       <div class="card__body">
@@ -34,7 +34,7 @@ function createCard({
           <div class="card__show-details">
             <button type="button" class="button button--link p-0 js-details-show" aria-expanded="false" aria-controls="popover-${id}">
               Ver desglose<svg class="button__icon-16" aria-hidden="true">
-                <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
+                <use xlink:href="./assets/svg/sprite.svg#chevron"></use>
               </svg>
             </button>
             ${createPopover(

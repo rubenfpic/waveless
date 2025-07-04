@@ -3,7 +3,7 @@ export function createFooter() {
     <div class="footer__layout">
       <div class="footer__main">
         <a href="/" class="logo" aria-label="Inicio">
-          <img src="/src/assets/svg/logo.svg" class="logo__img" alt="Waveless" />
+          <img src="./assets/svg/logo.svg" class="logo__img" alt="Waveless" />
         </a>
       </div>
       <div class="footer__legal">

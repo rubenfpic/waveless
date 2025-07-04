@@ -2,11 +2,11 @@ function createLegend(icon, name) {
   return `
     <legend class="filters__legend js-legend">
       <svg class="filters__icon" aria-hidden="true">
-        <use xlink:href="/src/assets/svg/sprite.svg#${icon}"></use>
+        <use xlink:href="./assets/svg/sprite.svg#${icon}"></use>
       </svg>
       <span class="filters__legend-text">${name}</span>
       <svg class="filters__chevron js-chevron" aria-hidden="true">
-        <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
+        <use xlink:href="./assets/svg/sprite.svg#chevron"></use>
       </svg>
     </legend>
   `;
@@ -19,7 +19,7 @@ function createCheckbox(group, filter, label) {
       ${label} 
       <span class="tooltip">
         <svg class="tooltip__icon" aria-hidden="true">
-          <use xlink:href="/src/assets/svg/sprite.svg#info"></use>
+          <use xlink:href="./assets/svg/sprite.svg#info"></use>
         </svg>
         <span class="tooltip__text">Lorem ipsum</span>
       </span>
@@ -30,7 +30,7 @@ function createCheckbox(group, filter, label) {
 function createInput(icon, name, placeholder) {
   return `
     <svg class="input-wrapper__icon" aria-hidden="true">
-      <use xlink:href="/src/assets/svg/sprite.svg#${icon}"></use>
+      <use xlink:href="./assets/svg/sprite.svg#${icon}"></use>
     </svg>
     <input class="input input--icon" type="text" name="${name}" placeholder="${placeholder}">
   `;
@@ -40,7 +40,7 @@ export function createFilters() {
   const fragment = document.createRange().createContextualFragment(`
     <button type="submit" class="filters__toggle js-filters-toggle" aria-controls="filtersPanel" aria-expanded="false">
       <svg class="filters__icon" aria-hidden="true">
-        <use xlink:href="/src/assets/svg/sprite.svg#filtros"></use>
+        <use xlink:href="./assets/svg/sprite.svg#filtros"></use>
       </svg>
       <span>Ver filtros</span>
     </button>
@@ -49,7 +49,7 @@ export function createFilters() {
         <div class="filters__header">
           <h3 class="filters__title">Filtrar mi búsqueda</h3>
           <svg class="filters__close js-filters-close" aria-hidden="true">
-            <use xlink:href="/src/assets/svg/sprite.svg#cerrar"></use>
+            <use xlink:href="./assets/svg/sprite.svg#cerrar"></use>
           </svg>
         </div>
         <form class="filters__form">
