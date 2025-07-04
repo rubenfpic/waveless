@@ -51,9 +51,8 @@ export function activateSlider() {
   const nextButton = document.querySelector(".js-slider-next");
   const sliderTrack = document.querySelector(".js-slider-track");
   const dotsContainer = document.querySelector(".js-dots-container");
-  const sliderWidth = document
-    .querySelector(".js-slider")
-    .getBoundingClientRect().width;
+  const getSliderWidth = () =>
+    document.querySelector(".js-slider").getBoundingClientRect().width;
 
   let currentItem = 0;
 
@@ -75,9 +74,10 @@ export function activateSlider() {
     sliderTrack.append(sliderCurrentItemNode);
   }
   function addPrevItem() {
+    const prevIndex = getPrevIndex(currentItem, slidesData.length);
     const sliderPrevItemHTML = createSliderItem(
-      slidesData[getPrevIndex(currentItem, slidesData.length)].image,
-      slidesData[getPrevIndex(currentItem, slidesData.length)].country
+      slidesData[prevIndex].image,
+      slidesData[prevIndex].country
     );
     const sliderPrevItemNode = document
       .createRange()
@@ -85,9 +85,10 @@ export function activateSlider() {
     sliderTrack.prepend(sliderPrevItemNode);
   }
   function addNextItem() {
+    const nextIndex = getNextIndex(currentItem, slidesData.length);
     const sliderNextItemHTML = createSliderItem(
-      slidesData[getNextIndex(currentItem, slidesData.length)].image,
-      slidesData[getNextIndex(currentItem, slidesData.length)].country
+      slidesData[nextIndex].image,
+      slidesData[nextIndex].country
     );
     const sliderNextItemNode = document
       .createRange()
@@ -100,6 +101,7 @@ export function activateSlider() {
     sliderDots.forEach((el, index) => {
       el.classList.remove("is-active");
       el.removeAttribute("aria-current");
+      el.setAttribute("aria-label", "Ir al slide " + (index + 1));
       if (index == currentItem) {
         el.classList.add("is-active");
         el.setAttribute("aria-current", "step");
@@ -109,7 +111,9 @@ export function activateSlider() {
 
   function showSlide(index) {
     currentItem = index;
-    sliderTrack.style.transform = `translateX(-${sliderWidth * currentItem}px)`;
+    sliderTrack.style.transform = `translateX(-${
+      getSliderWidth() * currentItem
+    }px)`;
     updateDots();
   }
 
@@ -137,4 +141,15 @@ export function activateSlider() {
   addPrevItem();
   addNextItem();
   updateDots();
+
+  window.addEventListener("resize", () => {
+    sliderTrack.innerHTML = "";
+    addCurrentItem();
+    addPrevItem();
+    addNextItem();
+    sliderTrack.style.transform = `translateX(-${
+      getSliderWidth() * currentItem
+    }px)`;
+    updateDots();
+  });
 }
