@@ -1,4 +1,5 @@
 export function createPopover(
+  id,
   destination,
   days,
   priceBeforeTaxes,
@@ -6,12 +7,14 @@ export function createPopover(
   finalPrice
 ) {
   return `
-    <div class="popover js-popover">
+    <div class="popover js-popover" role="dialog" id="popover-${id}" aria-labelledby="title-${id}">
       <div class="popover__header">
-        <h3 class="popover__title">Desglose de precios</h3>
-        <svg class="popover__close js-popover-close" aria-hidden="true">
-          <use xlink:href="/src/assets/svg/sprite.svg#cerrar"></use>
-        </svg>
+        <h3 class="popover__title" id="title-${id}">Desglose de precios</h3>
+        <button type="button" class="button button--icon-32 js-popover-close" aria-label="Cerrar desglose de precios">
+          <svg aria-hidden="true">
+            <use xlink:href="/src/assets/svg/sprite.svg#cerrar"></use>
+          </svg>
+        </button>
       </div>
       <div class="popover__body">
         <h3 class="popover__summary">
@@ -79,6 +82,9 @@ export function closePopover() {
   const allPopovers = document.querySelectorAll(".js-popover");
   allPopovers.forEach((el) => {
     el.classList.remove("is-visible");
+    el.parentElement
+      .querySelector("button[aria-expanded]")
+      .setAttribute("aria-expanded", "false");
   });
   document.body.classList.remove("no-scroll");
 }

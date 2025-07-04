@@ -131,12 +131,12 @@
         transform: translateX(-50%);
         display: flex;
         flex-direction: row;
-        gap: to-rem(8px);
+        gap: to-rem(12px);
     }
 
     &__dot {
-        width: to-rem(10px);
-        height: to-rem(10px);
+        width: to-rem(12px);
+        height: to-rem(12px);
         padding: 0;
         border-radius: to-rem(5px);
         border: to-rem(1px) solid var(--slider-indicator-border-default);

@@ -6,6 +6,7 @@ import {
 import { cardsData } from "../data/data.js";
 
 function createCard({
+  id,
   image,
   adventure,
   destination,
@@ -17,7 +18,7 @@ function createCard({
   return `
     <article class="card js-card" data-adventure="${adventure}">
       <div class="card__image">
-        <img src="/src/assets/img/${image}" alt="Destino destacado" />
+        <img src="/src/assets/img/${image}" alt="Imagen de ${adventure} en ${destination}" />
         <span class="card__tag">${adventure}</span>
       </div>
       <div class="card__body">
@@ -31,12 +32,13 @@ function createCard({
             248,00 €
           </strong>
           <div class="card__show-details">
-            <button type="button" class="button button--link p-0 js-details-show">
+            <button type="button" class="button button--link p-0 js-details-show" aria-expanded="false" aria-controls="popover-${id}">
               Ver desglose<svg class="button__icon-16" aria-hidden="true">
                 <use xlink:href="/src/assets/svg/sprite.svg#chevron"></use>
               </svg>
             </button>
             ${createPopover(
+              id,
               destination,
               days,
               priceBeforeTaxes,
@@ -76,9 +78,11 @@ export function showCardDetails() {
   const detailsShow = document.querySelectorAll(".js-details-show");
 
   detailsShow.forEach((el) => {
+    // el.setAttribute("aria-expanded", false);
     el.addEventListener("click", () => {
       closePopover();
       openPopover(el);
+      el.setAttribute("aria-expanded", true);
     });
   });
 

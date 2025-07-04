@@ -35,6 +35,22 @@ Se han separado los componentes **JavaScript** en ficheros diferentes en los que
 
 Se ha considerado necesario alojar algunos datos en un fichero separado (data.js) para evitar utilizar ficheros demasiado extensos.
 
+## Accesibilidad
+
+Se ha utilizado código **HTML semántico**.
+Los SVG decorativos tienen definido el **aria-hidden**.
+Se ha controlado el **aria-expanded** en los elementos desplegables.
+Se ha utilizado **aria-label** en los elementos sin texto descriptivo.
+
+TOGGLE BURGER
+IMAGENES
+CURRENT STEP SLIDER
+
+### Revisión con Lighthouse
+
+Se ha utilizado un color más oscuro para --intro-subtitle dado que no pasaba el test de contraste.
+Se ha aumentado el tamaño del los puntos del menú del slider porque la versión móvil no pasaba el test.
+
 ## Instalación y arranque
 
 Para instalarlo, ejecutar en el directorio del proyecto el comando:

@@ -38,7 +38,7 @@ function createInput(icon, name, placeholder) {
 
 export function createFilters() {
   const fragment = document.createRange().createContextualFragment(`
-    <button class="filters__toggle js-filters-toggle">
+    <button type="submit" class="filters__toggle js-filters-toggle" aria-controls="filtersPanel" aria-expanded="false">
       <svg class="filters__icon" aria-hidden="true">
         <use xlink:href="/src/assets/svg/sprite.svg#filtros"></use>
       </svg>
@@ -120,6 +120,9 @@ export function toggleFiltersPanel() {
   const body = document.querySelector("body");
 
   filtersToggle.addEventListener("click", () => {
+    const isExpanded = filtersPanel.classList.contains("is-visible");
+
+    filtersToggle.setAttribute("aria-expanded", !isExpanded);
     filtersPanel.classList.toggle("is-visible");
     if (
       window.getComputedStyle(filtersPanel).position == "fixed" &&
@@ -136,12 +139,14 @@ export function toggleFiltersPanel() {
 
   window.addEventListener("resize", () => {
     filtersPanel.classList.remove("is-visible");
+    filtersToggle.setAttribute("aria-expanded", false);
     body.classList.remove("no-scroll");
   });
 }
 
 export function toggleFiltersFieldset() {
   const legendsList = document.querySelectorAll(".js-legend");
+
   legendsList.forEach((legend) => {
     legend.addEventListener("click", () => {
       legend.parentElement.classList.toggle("is-collapsed");

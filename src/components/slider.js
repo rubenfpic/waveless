@@ -2,7 +2,8 @@ import { slidesData } from "../data/data.js";
 
 function createSliderItem(image, country, visible = "") {
   return `
-    <div class="slider__item ${visible} js-slider-item" style="background-image: url('/src/assets/img/${image}');">
+    <div class="slider__item ${visible} js-slider-item" style="background-image: url('/src/assets/img/${image}');" role="img"
+  aria-label="Imagen de un paisaje de ${country}">
       <div class="slider__content">
         <div class="slider__text">
           <h2 class="slider__title">Ruta por ${country}</h2>
@@ -98,10 +99,11 @@ export function activateSlider() {
     const sliderDots = document.querySelectorAll(".js-slider-dot");
     sliderDots.forEach((el, index) => {
       el.classList.remove("is-active");
-      index == currentItem &&
-        document
-          .querySelectorAll(".js-slider-dot")
-          [index].classList.add("is-active");
+      el.removeAttribute("aria-current");
+      if (index == currentItem) {
+        el.classList.add("is-active");
+        el.setAttribute("aria-current", "step");
+      }
     });
   }
 

@@ -46,12 +46,6 @@
         line-height: to-rem(24px);
     }
 
-    &__close {
-        width: to-rem(24px);
-        height: to-rem(24px);
-        cursor: pointer;
-    }
-
     &__body,
     &__footer {
         padding: to-rem(24px 16px);

@@ -6,6 +6,7 @@ export const slidesData = [
 
 export const cardsData = [
   {
+    id: "001",
     image: "card1.png",
     adventure: "quads",
     destination: "Marruecos, África",
@@ -15,6 +16,7 @@ export const cardsData = [
     finalPrice: "3555,43 €",
   },
   {
+    id: "002",
     image: "card2.png",
     adventure: "parapente",
     destination: "Marruecos, África",
@@ -24,6 +26,7 @@ export const cardsData = [
     finalPrice: "3555,43 €",
   },
   {
+    id: "003",
     image: "card3.png",
     adventure: "quads",
     destination: "Marruecos, África",
@@ -33,6 +36,7 @@ export const cardsData = [
     finalPrice: "3555,43 €",
   },
   {
+    id: "004",
     image: "card1.png",
     adventure: "surf",
     destination: "Marruecos, África",
@@ -42,6 +46,7 @@ export const cardsData = [
     finalPrice: "3555,43 €",
   },
   {
+    id: "005",
     image: "card2.png",
     adventure: "snowboard",
     destination: "Marruecos, África",
@@ -51,6 +56,7 @@ export const cardsData = [
     finalPrice: "3555,43 €",
   },
   {
+    id: "006",
     image: "card3.png",
     adventure: "buceo",
     destination: "Marruecos, África",

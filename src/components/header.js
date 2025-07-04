@@ -5,10 +5,10 @@ export function createHeader() {
         <img src="/src/assets/svg/logo.svg" class="logo__img" alt="Waveless" />
       </a>
       <div class="header__nav">
-        <nav class="nav js-nav" aria-label="Menú principal">
+        <nav class="nav js-nav" id="nav" aria-label="Menú principal">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#" class="nav__link is-active">
+              <a href="#" class="nav__link is-active" aria-current="page">
                 <svg class="nav__icon" aria-hidden="true">
                   <use xlink:href="/src/assets/svg/sprite.svg#aventura"></use>
                 </svg>
@@ -41,13 +41,11 @@ export function createHeader() {
       </div>
       <div class="header__actions">
         <button type="button" class="button button--base button--primary">Reserva</button>
-        
-        <button type="button" class="header__burger js-burger-toggle button button--icon-32" aria-label="Abrir menú">
+        <button type="button" class="header__burger js-burger-toggle button button--icon-32" aria-label="Abrir el menú principal" aria-controls="nav" aria-expanded="false">
           <svg class="nav__burger-icon" aria-hidden="true">
             <use xlink:href="/src/assets/svg/sprite.svg#burger"></use>
           </svg>
         </button>
-
       </div>
     </div>  
   `);
@@ -55,14 +53,26 @@ export function createHeader() {
   const burger = fragment.querySelector(".js-burger-toggle");
   const nav = fragment.querySelector(".js-nav");
 
+  function showMobileNav() {
+    nav.classList.add("is-open");
+    burger.setAttribute("aria-expanded", true);
+    document.body.classList.add("no-scroll");
+  }
+
+  function hideMobileNav() {
+    nav.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", false);
+    document.body.classList.remove("no-scroll");
+  }
+
   burger.addEventListener("click", () => {
-    nav.classList.toggle("is-open");
-    document.body.classList.toggle("no-scroll");
+    const isExpanded = nav.classList.contains("is-open");
+
+    !isExpanded ? showMobileNav() : hideMobileNav();
   });
 
   window.addEventListener("resize", () => {
-    nav.classList.remove("is-open");
-    document.body.classList.remove("no-scroll");
+    hideMobileNav();
   });
 
   return fragment;
