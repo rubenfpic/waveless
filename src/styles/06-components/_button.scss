@@ -27,6 +27,7 @@
     &--primary {
         color: var(--button-primary-text-default);
         background: var(--button-primary-background-default);
+        transition: all 0.1s ease;
 
         &:hover {
             background: var(--button-primary-background-hover);
@@ -36,6 +37,7 @@
     &--accent {
         color: var(--button-accent-text-default);
         background: var(--button-accent-background-default);
+        transition: all 0.1s ease;
 
         &:hover {
             background: var(--button-accent-background-hover);

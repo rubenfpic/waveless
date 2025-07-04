@@ -98,6 +98,7 @@
                 top: 0;
                 bottom: 0;
                 border-left: to-rem(2px) solid var(--tab-navbar-selection-indicator-background-active);
+                transition: all 0.1s ease;
             }
 
             &::before {
@@ -108,13 +109,7 @@
                 border-left: to-rem(9px) solid transparent;
                 border-right: to-rem(9px) solid transparent;
                 border-bottom: to-rem(12px) solid var(--tab-navbar-selection-indicator-background-active);
-            }
-
-            &:hover {
-                &::before,
-                &::after {
-                    border-bottom-color: var(--tab-navbar-selection-indicator-background-active-hover);
-                }
+                transition: all 0.1s ease;
             }
         }
 
